@@ -13,6 +13,25 @@
     #define STDTHREAD_STRICT_NONRECURSIVE_LOCKS
 #endif
 
+#include <mutex>
+
+#include <windows.h>
+#include <chrono>
+#include <system_error>
+
+#include <stdio.h>
+#include <errno.h>
+#ifndef EOWNERDEAD
+/* Defined as ERROR_SEM_OWNER_DIED.  */
+#define EOWNERDEAD 105
+#endif
+
+#ifndef EPROTO
+/* Defined as XACT_E_TIP_PROTOCOL_ERROR.  */
+#define EPROTO 0x8004D020
+#endif
+
+
 namespace std
 {
 class recursive_mutex
