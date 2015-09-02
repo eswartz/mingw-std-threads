@@ -9,12 +9,17 @@
 #ifndef WIN32STDTHREAD_H
 #define WIN32STDTHREAD_H
 
+// bug with _hypot at -O2
+#undef __STRICT_ANSI__
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+#include <process.h>
+
 #include <functional>
 #include <memory>
 #include <chrono>
 #include <system_error>
-#include <process.h>
 
 //instead of INVALID_HANDLE_VALUE _beginthreadex returns 0
 #define _STD_THREAD_INVALID_HANDLE 0

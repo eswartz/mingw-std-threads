@@ -13,8 +13,12 @@
     #define STDTHREAD_STRICT_NONRECURSIVE_LOCKS
 #endif
 
-#include <mutex>
+// bug with _hypot at -O2
+#undef __STRICT_ANSI__
 
+#include <mutex>
+ 
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include <chrono>
 #include <system_error>
