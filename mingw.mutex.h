@@ -204,7 +204,6 @@ class timed_mutex: public _NonRecursiveMutex<recursive_timed_mutex>
 protected:
     typedef _NonRecursiveMutex<recursive_timed_mutex> base;
 public:
-    using base::base;
     template <class Rep, class Period>
     void try_lock_for(const std::chrono::duration<Rep,Period>& dur)
     {
